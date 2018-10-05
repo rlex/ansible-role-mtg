@@ -19,7 +19,7 @@
 
 - name: Download binary
   get_url:
-    url: "https://github.com/9seconds/mtg/releases/download/0.14/mtg-linux-amd64"
+    url: "https://github.com/9seconds/mtg/releases/download/{{ mtg_version }}/mtg-linux-amd64"
     checksum: "{{ mtg_checksum }}"
     dest: /opt/mtg/mtg-linux-amd64
   notify: restart mtg
