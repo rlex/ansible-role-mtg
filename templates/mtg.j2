@@ -1,0 +1,29 @@
+MTG_DEBUG={{ mtg_debug | lower }}
+MTG_VERBOSE={{ mtg_verbose | lower }}
+MTG_SECRET={{ mtg_secret }}
+{% if mtg_adtag is defined %}
+MTG_ADTAG={{ mtg_adtag }}
+{% endif %}
+MTG_IP={{ mtg_ip }}
+MTG_PORT={{ mtg_port }}
+{% if mtg_ipv4 is defined %}
+MTG_IPV4={{ mtg_ipv4 }}
+MTG_IPV4_PORT={{ mtg_ipv4_port }}
+{% endif %}
+{% if mtg_ipv6 is defined %}
+MTG_IPV6={{ mtg_ipv6 }}
+MTG_IPV6_PORT={{ mtg_ipv6_port }}
+{% endif %}
+{% if mtg_statsd_ip is defined %}
+MTG_STATSD_IP={{ mtg_statsd_ip }}
+MTG_STATSD_PORT={{ mtg_statsd_port }}
+MTG_STATSD_NETWORK={{ mtg_statsd_network }}
+MTG_STATSD_PREFIX={{ mtg_statsd_prefix }}
+MTG_STATSD_TAGS_FORMAT={{ mtg_statsd_tags_format }}
+{% if mtg_statsd_tags is defined %}
+MTG_STATSD_TAGS={{ mtg_statsd_tags }}
+{% endif %}
+{% endif %}
+MTG_BUFFER_WRITE={{ mtg_buffer_write }}
+MTG_BUFFER_READ={{ mtg_buffer_read }}
+MTG_SECURE_ONLY={{ mtg_secure_only | lower }}

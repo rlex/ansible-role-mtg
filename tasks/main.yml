@@ -1,0 +1,29 @@
+---
+- name: "Check mtg version"
+  slurp:
+    src: "/etc/mtg/VERSION"
+  ignore_errors: yes
+  register: mtgver
+
+- include_tasks: install.yml
+  when: mtgver.content|default(None)|b64decode|int != mtg_version
+
+- name: Generate config
+  template:
+    src: mtg.j2
+    dest: /etc/default/mtg
+  notify: restart mtg
+
+- name: Upload systemd unit file
+  template:
+    src: mtg.service.j2
+    dest: /etc/systemd/system/mtg.service
+  notify:
+    - systemd daemon-reload
+    - restart mtg
+
+- name: Enable service
+  systemd:
+    name: mtg
+    state: started
+    enabled: yes

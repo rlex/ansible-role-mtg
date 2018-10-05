@@ -1,0 +1,11 @@
+[Unit]
+Description=Bullshit-free MTPROTO proxy for Telegram
+After=network.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/default/mtg
+ExecStart=/opt/mtg/mtg-linux-amd64 ${MTG_SECRET} ${MTG_ADTAG}
+
+[Install]
+WantedBy=multi-user.target

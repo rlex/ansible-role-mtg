@@ -1,0 +1,20 @@
+- name: Create mtg directories
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - /opt/mtg
+    - /etc/mtg
+
+- name: Download binary
+  get_url:
+    url: "https://github.com/9seconds/mtg/releases/download/0.14/mtg-linux-amd64"
+    checksum: "{{ mtg_checksum }}"
+    dest: /opt/mtg/mtg-linux-amd64
+  notify: restart mtg
+
+- name: "Create VERSION file"
+  copy:
+    content: "{{ mtg_version }}"
+    dest: "/etc/mtg/VERSION"
+    mode: 0600

@@ -1,0 +1,9 @@
+---
+- name: restart mtg
+  service:
+    name: mtg
+    state: restarted
+
+- name: systemd daemon-reload
+  systemd:
+    daemon_reload: yes
