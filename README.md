@@ -5,7 +5,7 @@ Should work on any system with systemd, so basically with any modern linux.
 You will need to specify mtproto secret in mtg_secret, generated with
 
 ```
-openssl rand -hex 16 or
+openssl rand -hex 16
 ```
 
 or
