@@ -6,6 +6,17 @@
     - /opt/mtg
     - /etc/mtg
 
+- name: Get list of releases
+  uri:
+    url: https://api.github.com/repos/9seconds/mtg/releases/latest
+    return_content: yes
+  register: mtg_releases
+
+- name: Check for update
+  debug:
+    msg: "Newer version {{ mtg_releases.json.tag_name }} available, consider updating"
+  when: mtg_releases.json.tag_name != mtg_version|string
+
 - name: Download binary
   get_url:
     url: "https://github.com/9seconds/mtg/releases/download/0.14/mtg-linux-amd64"
