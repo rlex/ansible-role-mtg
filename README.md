@@ -18,8 +18,8 @@ Promoted channels are also supported, just specify your adtag in mtg_adtag
 
 Configurable variables (default ones):
 ```
-mtg_version: 0.14
-mtg_checksum: sha512:7c0d55d501e500c0470898e4d5313d345e275452ad6331b5dfbdc5accf622c9e554eaf33cc65582479f058d29bf155d0e1be200f8a3ff338b1f43b9c875b8e25
+mtg_version: 0.15
+mtg_checksum: sha512:8e4bc4b81ec18c2789742ad8c4c513bda9b9501c7838e131bacd689bb5be1a9d0502b1a7f16a96fabd84dc0769b34b09c72351c7b04ce09439dffb66a2c597cd
 mtg_debug: false
 mtg_verbose: false
 mtg_ip: 0.0.0.0
