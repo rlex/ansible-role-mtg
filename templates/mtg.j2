@@ -16,10 +16,18 @@ MTG_IPV6_PORT={{ mtg_ipv6_port }}
 {% endif %}
 {% if mtg_statsd_ip is defined %}
 MTG_STATSD_IP={{ mtg_statsd_ip }}
+{% if mtg_statsd_port is defined %}
 MTG_STATSD_PORT={{ mtg_statsd_port }}
+{% endif %}
+{% if mtg_statsd_network is defined %}
 MTG_STATSD_NETWORK={{ mtg_statsd_network }}
+{% endif %}
+{% if mtg_statsd_prefix is defined %}
 MTG_STATSD_PREFIX={{ mtg_statsd_prefix }}
+{% endif %}
+{% if mtg_statsd_tags_format is defined %}
 MTG_STATSD_TAGS_FORMAT={{ mtg_statsd_tags_format }}
+{% endif %}
 {% if mtg_statsd_tags is defined %}
 MTG_STATSD_TAGS={{ mtg_statsd_tags }}
 {% endif %}
