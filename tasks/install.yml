@@ -23,6 +23,7 @@
     url: "https://github.com/9seconds/mtg/releases/download/{{ mtg_version }}/mtg-linux-amd64"
     checksum: "{{ mtg_checksum }}"
     dest: /opt/mtg/mtg-linux-amd64
+    mode: 0740
   notify: restart mtg
 
 - name: "Create VERSION file"
