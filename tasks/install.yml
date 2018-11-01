@@ -13,8 +13,9 @@
   register: mtg_releases
 
 - name: Check for update
-  debug:
+  fail:
     msg: "Newer version {{ mtg_releases.json.tag_name }} available, consider updating"
+  ignore_errors: yes
   when: mtg_releases.json.tag_name != mtg_version|string
 
 - name: Download binary
