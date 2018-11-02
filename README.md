@@ -46,3 +46,15 @@ mtg_statsd_prefix: mtg
 mtg_statsd_tags_format: influxdb
 mtg_statsd_tags: mtg=true
 ```
+
+### Installing on other architectures
+For running on something other than amd64, you will need to specify target architecture, ie
+
+```
+mtg_architecture: arm64
+```
+
+In addition, you will need to specify mtg_checksum for mtg binary. You can get it with this command:
+```
+curl -s https://github.com/9seconds/mtg/releases/download/0.15/mtg-linux-arm64 | sha512sum | awk {'print $1'} | xargs -I checksum -n1 echo "sha512:checksum"
+```
