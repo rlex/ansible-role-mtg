@@ -1,5 +1,5 @@
-mtg_version: 0.15
-mtg_checksum: sha512:8e4bc4b81ec18c2789742ad8c4c513bda9b9501c7838e131bacd689bb5be1a9d0502b1a7f16a96fabd84dc0769b34b09c72351c7b04ce09439dffb66a2c597cd
+mtg_version: 0.15.1
+mtg_checksum: sha512:45137c97c954acad98766883584334615299ba899117f3e110d5312f301b8541e4a50a885f73b1d30fe5bd04566eea75fe8237c2aa9ec387c3d2e237ac3c4aee
 mtg_debug: false
 mtg_verbose: false
 mtg_ip: 0.0.0.0
