@@ -56,5 +56,5 @@ mtg_architecture: arm64
 
 In addition, you will need to specify mtg_checksum for mtg binary. You can get it with this command:
 ```
-curl -s https://github.com/9seconds/mtg/releases/download/0.15/mtg-linux-arm64 | sha512sum | awk {'print $1'} | xargs -I checksum -n1 echo "sha512:checksum"
+curl -Ls https://github.com/9seconds/mtg/releases/download/0.15.1/mtg-linux-amd64 | gsha512sum | awk {'print $1'} | xargs -I #checksum -n1 echo "mtg_checksum: sha512:#checksum"
 ```
