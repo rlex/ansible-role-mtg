@@ -12,7 +12,7 @@
     return_content: yes
   register: mtg_releases
 
-- name: Check for update
+- name: Warn if new version has been found
   fail:
     msg: "Newer version {{ mtg_releases.json.tag_name }} available, consider updating"
   ignore_errors: yes
