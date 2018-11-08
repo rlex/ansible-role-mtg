@@ -5,22 +5,26 @@
   ignore_errors: yes
   register: mtgver
 
+- name: Get list of releases
+  uri:
+    url: https://api.github.com/repos/9seconds/mtg/releases/latest
+    return_content: yes
+  register: mtg_releases
+
+- name: Warn if new version has been found
+  fail:
+    msg: "Newer version {{ mtg_releases.json.tag_name }} available, consider updating"
+  ignore_errors: yes
+  when: mtg_releases.json.tag_name != mtg_version|string
+
 - include_tasks: install.yml
-  when: mtgver.content|default(None)|b64decode|int != mtg_version
+  when: mtgver.content|default(None)|b64decode != mtg_version
 
 - name: Generate config
   template:
     src: mtg.j2
     dest: /etc/default/mtg
   notify: restart mtg
-
-- name: Upload systemd unit file
-  template:
-    src: mtg.service.j2
-    dest: /etc/systemd/system/mtg.service
-  notify:
-    - systemd daemon-reload
-    - restart mtg
 
 - name: Enable service
   systemd:

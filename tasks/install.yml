@@ -6,18 +6,6 @@
     - /opt/mtg
     - /etc/mtg
 
-- name: Get list of releases
-  uri:
-    url: https://api.github.com/repos/9seconds/mtg/releases/latest
-    return_content: yes
-  register: mtg_releases
-
-- name: Warn if new version has been found
-  fail:
-    msg: "Newer version {{ mtg_releases.json.tag_name }} available, consider updating"
-  ignore_errors: yes
-  when: mtg_releases.json.tag_name != mtg_version|string
-
 - name: Download binary
   get_url:
     url: "https://github.com/9seconds/mtg/releases/download/{{ mtg_version }}/mtg-linux-{{ mtg_architecture | default('amd64') }}"
@@ -25,6 +13,14 @@
     dest: /opt/mtg/mtg-linux-amd64
     mode: 0740
   notify: restart mtg
+
+- name: Upload systemd unit file
+  template:
+    src: mtg.service.j2
+    dest: /etc/systemd/system/mtg.service
+  notify:
+    - systemd daemon-reload
+    - restart mtg
 
 - name: "Create VERSION file"
   copy:
