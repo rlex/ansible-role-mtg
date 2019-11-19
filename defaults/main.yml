@@ -1,9 +1,11 @@
-mtg_version: 0.16
-mtg_checksum: sha512:d959ad8a45c5427b55ab82071fbcff7de68306bcf38318fd1be3a7d463a70da25e494600d7789e9c02180fffebcf3363b0dcf3a4895802b55a7e46a52d2f92be
+mtg_version: 1.0
+mtg_checksum: sha512:8e726116ec4d67d1c4740788abd7585f2ddd9f3202b01150317e8e67931b14ffe3d390755e8bcd03317cd5f429d48f4fbb4e05ca22ef4a0bbbc78880f558469a
 mtg_debug: false
 mtg_verbose: false
 mtg_ip: 0.0.0.0
 mtg_port: 3128
-mtg_buffer_write: 65536
-mtg_buffer_read: 131072
+mtg_stats_bind: 127.0.0.1:3129
+mtg_buffer_write: 64KB
+mtg_buffer_read: 128KB
+mtg_antireplay_maxsize: 128MB
 mtg_secure_only: false

@@ -47,6 +47,11 @@ mtg_statsd_tags_format: influxdb
 mtg_statsd_tags: mtg=true
 ```
 
+Prometheus endpoint configuration:
+```
+mtg_stats_bind: 127.0.0.1:3129
+```
+
 ### Installing on other architectures
 For running on something other than amd64, you will need to specify target architecture, ie
 
