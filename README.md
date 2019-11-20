@@ -16,7 +16,7 @@ head -c 512 /dev/urandom | md5sum | cut -f 1 -d ' '
 
 Promoted channels are also supported, just specify your adtag in mtg_adtag
 
-Configurable variables (default ones):
+Other configurable variables (default ones):
 ```
 mtg_version: 0.15
 mtg_checksum: sha512:8e4bc4b81ec18c2789742ad8c4c513bda9b9501c7838e131bacd689bb5be1a9d0502b1a7f16a96fabd84dc0769b34b09c72351c7b04ce09439dffb66a2c597cd
@@ -24,8 +24,9 @@ mtg_debug: false
 mtg_verbose: false
 mtg_ip: 0.0.0.0
 mtg_port: 3128
-mtg_buffer_write: 65536
-mtg_buffer_read: 131072
+mtg_buffer_write: 64KB
+mtg_buffer_read: 128KB
+mtg_antireplay_maxsize: 128MB
 mtg_secure_only: false
 ```
 

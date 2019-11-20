@@ -4,8 +4,3 @@ mtg_debug: false
 mtg_verbose: false
 mtg_ip: 0.0.0.0
 mtg_port: 3128
-mtg_stats_bind: 127.0.0.1:3129
-mtg_buffer_write: 64KB
-mtg_buffer_read: 128KB
-mtg_antireplay_maxsize: 128MB
-mtg_secure_only: false
