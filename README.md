@@ -2,24 +2,12 @@
 Installs specified version of mtg from github, configures and starts it.
 Should work on any system with systemd, so basically with any modern linux.
 
-You will need to specify mtproto secret in mtg_secret, generated with
-
-```
-openssl rand -hex 16
-```
-
-or
-
-```
-head -c 512 /dev/urandom | md5sum | cut -f 1 -d ' '
-```
+Minimal configuration is mtproto secret in mtg_secret varible, please refer to [mtg documentation on how to generate different secrets](https://github.com/9seconds/mtg#configuration)
 
 Promoted channels are also supported, just specify your adtag in mtg_adtag
 
 Other configurable variables (default ones):
 ```
-mtg_version: 0.15
-mtg_checksum: sha512:8e4bc4b81ec18c2789742ad8c4c513bda9b9501c7838e131bacd689bb5be1a9d0502b1a7f16a96fabd84dc0769b34b09c72351c7b04ce09439dffb66a2c597cd
 mtg_debug: false
 mtg_verbose: false
 mtg_ip: 0.0.0.0
@@ -62,5 +50,5 @@ mtg_architecture: arm64
 
 In addition, you will need to specify mtg_checksum for mtg binary. You can get it with this command:
 ```
-curl -Ls https://github.com/9seconds/mtg/releases/download/0.15.1/mtg-linux-amd64 | gsha512sum | awk {'print $1'} | xargs -I #checksum -n1 echo "mtg_checksum: sha512:#checksum"
+curl -Ls https://github.com/9seconds/mtg/releases/download/v1.0.1/mtg-linux-amd64 | gsha512sum | awk {'print $1'} | xargs -I #checksum -n1 echo "mtg_checksum: sha512:#checksum"
 ```
