@@ -4,3 +4,4 @@ mtg_debug: false
 mtg_verbose: false
 mtg_ip: 0.0.0.0
 mtg_port: 3128
+mtg_user: 'mtg'
