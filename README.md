@@ -17,6 +17,7 @@ mtg_buffer_read: 128KB
 mtg_antireplay_maxsize: 128MB
 mtg_secure_only: false
 mtg_user: mtg
+mtg_cap_net_bind_service: false
 ```
 
 Optional parameters for public-facing ipv4/ipv6, required if your proxy is behind NAT
