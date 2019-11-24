@@ -6,6 +6,10 @@ After=network.target
 EnvironmentFile=/etc/mtg/config
 User={{ mtg_user }}
 ExecStart=/opt/mtg/mtg-linux-amd64 run ${MTG_SECRET} ${MTG_ADTAG}
+{% if mtg_cap_net_bind_service is defined %}
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+{% endif %}
 PrivateTmp=true
 ProtectSystem=full
 NoNewPrivileges=true

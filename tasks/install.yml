@@ -26,23 +26,6 @@
     mode: 0740
   notify: restart mtg
 
-- name: Allow mtg to bind to reserved ports
-  capabilities:
-    path: /opt/mtg/mtg-linux-amd64
-    capability: cap_net_bind_service=+ep
-    state: present
-  when: mtg_cap_net_bind_service
-  notify: restart mtg
-
-- name: Upload systemd unit file
-  template:
-    src: mtg.service.j2
-    dest: /etc/systemd/system/mtg.service
-    mode: '0640'
-  notify:
-    - systemd daemon-reload
-    - restart mtg
-
 - name: "Create VERSION file"
   copy:
     content: "{{ mtg_version }}"
