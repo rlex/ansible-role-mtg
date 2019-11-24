@@ -23,7 +23,11 @@
 - name: Generate config
   template:
     src: mtg.j2
-    dest: /etc/default/mtg
+    owner: "{{ mtg_user }}"
+    group: "{{ mtg_user }}"
+    mode: '0640'
+    dest: /etc/mtg/config
+    
   notify: restart mtg
 
 - name: Enable service

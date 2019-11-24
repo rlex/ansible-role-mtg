@@ -1,6 +1,16 @@
+- name: Create mtg user
+  user:
+    name: "{{ mtg_user }}"
+    shell: /bin/false
+    create_home: yes
+    home: /opt/mtg
+    system: yes
+
 - name: Create mtg directories
   file:
     path: "{{ item }}"
+    owner: "{{ mtg_user }}"
+    group: "{{ mtg_user }}"
     state: directory
   loop:
     - /opt/mtg
@@ -8,16 +18,27 @@
 
 - name: Download binary
   get_url:
-    url: "https://github.com/9seconds/mtg/releases/download/v{{ mtg_version }}/mtg-linux-{{ mtg_architecture | default('amd64') }}"
+    url: "https://github.com/9seconds/mtg/releases/download/{{ mtg_version }}/mtg-linux-{{ mtg_architecture | default('amd64') }}"
     checksum: "{{ mtg_checksum }}"
     dest: /opt/mtg/mtg-linux-amd64
+    owner: "{{ mtg_user }}"
+    group: "{{ mtg_user }}"
     mode: 0740
+  notify: restart mtg
+
+- name: Allow mtg to bind to reserved ports
+  capabilities:
+    path: /opt/mtg/mtg-linux-amd64
+    capability: cap_net_bind_service=+ep
+    state: present
+  when: mtg_cap_net_bind_service
   notify: restart mtg
 
 - name: Upload systemd unit file
   template:
     src: mtg.service.j2
     dest: /etc/systemd/system/mtg.service
+    mode: '0640'
   notify:
     - systemd daemon-reload
     - restart mtg

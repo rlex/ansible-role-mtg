@@ -1,6 +1,8 @@
-mtg_version: 1.0.1
+mtg_version: v1.0.1
 mtg_checksum: sha512:00228ecf39615a83f1bf755c62dfc6d610c35d5ab73994f25dc2dee3a46e59f2111ce18a5c34f13f6fd81254ec4cd878e8d3f757f57e73af0ada4a8778f80643
 mtg_debug: false
 mtg_verbose: false
 mtg_ip: 0.0.0.0
 mtg_port: 3128
+mtg_user: 'mtg'
+mtg_cap_net_bind_service: false
