@@ -41,6 +41,6 @@ MTG_ANTIREPLAY_MAXSIZE={{ mtg_antireplay_maxsize }}
 {% if mtg_multiplex_perconnection is defined %}
 MTG_MULTIPLEX_PERCONNECTION={{ mtg_multiplex_perconnection }}
 {% endif %}
-{% if mtg_secure_only %}
+{% if mtg_secure_only is defined %}
 MTG_SECURE_ONLY={{ mtg_secure_only | lower }}
 {% endif %}
